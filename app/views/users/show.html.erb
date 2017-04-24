@@ -1,2 +1,5 @@
-<h1>Users#show</h1>
-<p>Find me in app/views/users/show.html.erb</p>
+<h1>Welcome <%= @user.full_name %>!</h1>
+
+<h2>My Videos</h2>
+
+<%= link_to 'Add Video', new_video_path %>

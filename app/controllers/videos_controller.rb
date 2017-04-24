@@ -18,7 +18,7 @@ class VideosController < ApplicationController
 
     # then try to save it
     if @video.save
-      redirect_to user_path(@user)
+      redirect_to user_path(current_user)
     else
       redirect_to new_post_path
     end

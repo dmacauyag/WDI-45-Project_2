@@ -2,4 +2,12 @@
 
 <h2>My Videos</h2>
 
+<% @user.videos.each do |v| %>
+  <div class="video-container">
+    <h3><%= v.title %></h3>
+    <%= v.source.html_safe %>
+    <p><%= v.description %></p>
+  </div>
+<% end %>
+
 <%= link_to 'Add Video', new_video_path %>

@@ -13,7 +13,7 @@ class VideosController < ApplicationController
     # new video object with info from the form
     @video = Video.new(video_params)
 
-    # make this post belong to the current user that's submitting the form
+    # make this video belong to the current user that's submitting the form
     @video.user = current_user
 
     # then try to save it
@@ -25,9 +25,16 @@ class VideosController < ApplicationController
   end
 
   def edit
+    @video = Video.find(params[:id])
   end
 
   def update
+    @video = Video.find(params[:id])
+    if @video.update_attributes(video_params)
+      redirect_to user_path(current_user)
+    else
+      redirect_to edit_video_path(params[:id])
+    end
   end
 
   def destroy

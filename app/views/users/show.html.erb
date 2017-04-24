@@ -7,6 +7,7 @@
     <h3><%= v.title %></h3>
     <%= v.source.html_safe %>
     <p><%= v.description %></p>
+    <%= link_to 'Edit Video', edit_video_path(:id => v.id) %>
   </div>
 <% end %>
 

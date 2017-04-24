@@ -38,6 +38,10 @@ class VideosController < ApplicationController
   end
 
   def destroy
+    @video = Video.find(params[:id])
+    if @video.destroy
+      redirect_to user_path(current_user)
+    end
   end
 
   private

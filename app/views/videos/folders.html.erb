@@ -4,6 +4,6 @@
 
 <ul>
   <% @folders.each do |f| %>
-    <li><%= f.name %></li>
+    <li><%= link_to f.name, add_video_to_folder_path(@video, f.id), method: 'PATCH' %></li>
   <% end %>
 </ul>

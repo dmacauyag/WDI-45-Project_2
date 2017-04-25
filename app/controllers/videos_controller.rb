@@ -49,6 +49,15 @@ class VideosController < ApplicationController
     @folders = current_user.folders
   end
 
+  def add_video_to_folder
+    @video = Video.find(params[:id])
+    @folder = Folder.find(params[:folder_id])
+
+    if @folder.videos << @video
+      redirect_to user_path(current_user)
+    end
+  end
+
   private
   def video_params
     params.require(:video).permit(:title, :description, :source)

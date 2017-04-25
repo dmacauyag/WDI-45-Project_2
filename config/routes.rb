@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   post '/folders' => 'folders#create', as: :folders
 
   get '/videos/:id/folders' => 'videos#folders', as: :video_folder
+  patch '/videos/:id/folders/:folder_id' => 'videos#add_video_to_folder', as: :add_video_to_folder
 
   delete '/logout' => 'sessions#destroy', as: :logout
   resources :sessions, only: [:new, :create]

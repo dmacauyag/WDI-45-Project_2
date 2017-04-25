@@ -1,7 +1,6 @@
 <h1>Welcome <%= @user.full_name %>!</h1>
 
 <h2>My Videos</h2>
-
 <% @user.videos.each do |v| %>
   <div class="video-container">
     <h3><%= v.title %></h3>
@@ -13,3 +12,10 @@
 <% end %>
 
 <%= link_to 'Add Video', new_video_path %>
+
+<h3>My Folders</h3>
+<ul>
+  <% @user.folders.each do |f| %>
+    <li><%= f.name %></li>
+  <% end %>
+</ul>

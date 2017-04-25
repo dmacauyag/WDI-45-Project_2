@@ -7,6 +7,7 @@ Rails.application.routes.draw do
   get '/users/:id/folders/:folderid/edit' => 'folders#edit', as: :edit_folder
   get '/users/:id/folders/:folderid' => 'folders#show', as: :folder
   patch '/users/:id/folders/:folderid' => 'folders#update'
+  delete '/users/:id/folders/:folderid' => 'folders#destroy'
   post '/folders' => 'folders#create', as: :folders
 
   delete '/logout' => 'sessions#destroy', as: :logout

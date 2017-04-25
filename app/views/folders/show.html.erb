@@ -1,5 +1,6 @@
 <h2><%= @folder.name %></h2>
 <%= link_to 'Rename Folder', edit_folder_path(:id => @user.id, :folderid => @folder.id) %>
+<%= link_to 'Delete Folder', folder_path(:id => @user.id, :folderid => @folder.id), method: 'DELETE', data: {confirm: "Are you sure you want to delete this folder?"} %>
 <% @folder.videos.each do |v| %>
   <div class="video-container">
     <h3><%= v.title %></h3>

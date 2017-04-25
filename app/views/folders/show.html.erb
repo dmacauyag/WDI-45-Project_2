@@ -1,4 +1,5 @@
 <h2><%= @folder.name %></h2>
+<%= link_to 'Rename Folder', edit_folder_path(:id => @user.id, :folderid => @folder.id) %>
 <% @folder.videos.each do |v| %>
   <div class="video-container">
     <h3><%= v.title %></h3>

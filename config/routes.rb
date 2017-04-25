@@ -4,8 +4,10 @@ Rails.application.routes.draw do
   resources :videos
 
   get '/users/:id/folders/new' => 'folders#new', as: :new_folder
+  get '/users/:id/folders/:folderid/edit' => 'folders#edit', as: :edit_folder
   get '/users/:id/folders/:folderid' => 'folders#show', as: :folder
-  post '/folders' => 'folders#create', as: :folders 
+  patch '/users/:id/folders/:folderid' => 'folders#update'
+  post '/folders' => 'folders#create', as: :folders
 
   delete '/logout' => 'sessions#destroy', as: :logout
   resources :sessions, only: [:new, :create]

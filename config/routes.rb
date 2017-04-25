@@ -10,6 +10,8 @@ Rails.application.routes.draw do
   delete '/users/:id/folders/:folderid' => 'folders#destroy'
   post '/folders' => 'folders#create', as: :folders
 
+  get '/videos/:id/folders' => 'videos#folders', as: :video_folder
+
   delete '/logout' => 'sessions#destroy', as: :logout
   resources :sessions, only: [:new, :create]
 end

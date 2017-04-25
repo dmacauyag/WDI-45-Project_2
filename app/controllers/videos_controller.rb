@@ -44,6 +44,11 @@ class VideosController < ApplicationController
     end
   end
 
+  def folders
+    @video = Video.find(params[:id])
+    @folders = current_user.folders
+  end
+
   private
   def video_params
     params.require(:video).permit(:title, :description, :source)

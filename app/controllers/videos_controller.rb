@@ -53,8 +53,12 @@ class VideosController < ApplicationController
     @video = Video.find(params[:id])
     @folder = Folder.find(params[:folder_id])
 
-    if @folder.videos << @video
+    if !@folder.videos.exists?(@video.id)
+      @folder.videos << @video
       redirect_to user_path(current_user)
+    else
+      flash[:alert] = "That video is already inside the " + @folder.name + " folder."
+      redirect_to video_folder_path(@video)
     end
   end
 

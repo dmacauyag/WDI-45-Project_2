@@ -18,7 +18,8 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to user_path(@user)
     else
-      redirect_to new_session_path
+      flash[:fail] = "Passwords do not match!"
+      redirect_to new_user_path
     end
   end
 

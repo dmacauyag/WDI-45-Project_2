@@ -30,6 +30,11 @@
             <div class="col-md-5">
                 <%= f.password_field :password_confirmation, class: 'form-control' %>
             </div>
+            <% if flash[:fail] %>
+              <div class="alert alert-danger">
+                <%= flash[:fail] %>
+              </div>
+            <% end %>
         </div>
         <div class="form-group">
             <div class="col-md-8 col-md-offset-4">

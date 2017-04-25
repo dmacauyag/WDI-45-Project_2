@@ -3,7 +3,9 @@ Rails.application.routes.draw do
   resources :users
   resources :videos
 
-  get 'users/:id/folders/:folderid' => 'folders#show', as: :folder
+  get '/users/:id/folders/new' => 'folders#new', as: :new_folder
+  get '/users/:id/folders/:folderid' => 'folders#show', as: :folder
+  post '/folders' => 'folders#create', as: :folders 
 
   delete '/logout' => 'sessions#destroy', as: :logout
   resources :sessions, only: [:new, :create]

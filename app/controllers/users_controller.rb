@@ -6,7 +6,6 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find(params[:id])
-    @folders = @user.folders
   end
 
   def new
@@ -17,6 +16,8 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       session[:user_id] = @user.id
+      @user.folders.create name:'Favorites'
+      @user.folders.create name:'Archive'
       redirect_to user_path(@user)
     else
       flash[:fail] = "Passwords do not match!"

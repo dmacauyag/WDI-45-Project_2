@@ -58,6 +58,15 @@ class VideosController < ApplicationController
     end
   end
 
+  def remove_video_from_folder
+    @video = Video.find(params[:id])
+    @folder = Folder.find(params[:folder_id])
+
+    if @folder.videos.delete(@video)
+      redirect_to user_path(current_user)
+    end
+  end
+
   private
   def video_params
     params.require(:video).permit(:title, :description, :source)

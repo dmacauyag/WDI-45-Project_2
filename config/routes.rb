@@ -12,6 +12,7 @@ Rails.application.routes.draw do
 
   get '/videos/:id/folders' => 'videos#folders', as: :video_folder
   patch '/videos/:id/folders/:folder_id' => 'videos#add_video_to_folder', as: :add_video_to_folder
+  delete '/videos/:id/folders/:folder_id' => 'videos#remove_video_from_folder', as: :remove_video_from_folder
 
   delete '/logout' => 'sessions#destroy', as: :logout
   resources :sessions, only: [:new, :create]

@@ -4,7 +4,7 @@
 <% @folder.videos.each do |v| %>
   <div class="video-container">
     <h3><%= v.title %></h3>
-    <%= v.source.html_safe %>
+    <iframe src="<%= v.source.html_safe %>" width="300" height="300" allowfullscreen></iframe>
     <p><%= v.description %></p>
     <%= link_to 'Remove From ' + @folder.name, remove_video_from_folder_path(v.id, @folder), method: 'DELETE' %>
     <%= link_to 'Edit Video', edit_video_path(:id => v.id) %>

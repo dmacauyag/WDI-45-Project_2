@@ -4,7 +4,7 @@
 <% @user.videos.each do |v| %>
   <div class="video-container">
     <h3><%= v.title %></h3>
-    <%= v.source.html_safe %>
+    <iframe src="<%= v.source.html_safe %>" width="300" height="300" allowfullscreen></iframe>
     <p><%= v.description %></p>
     <%= link_to 'Add To Folder', video_folder_path(:id => v.id)  %>
     <%= link_to 'Edit Video', edit_video_path(:id => v.id) %>

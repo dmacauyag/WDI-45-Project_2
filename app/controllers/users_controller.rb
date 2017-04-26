@@ -20,8 +20,7 @@ class UsersController < ApplicationController
       @user.folders.create name:'Archive'
       redirect_to user_path(@user)
     else
-      flash[:fail] = "Please fill in required fields!"
-      redirect_to new_user_path
+      render new_user_path
     end
   end
 

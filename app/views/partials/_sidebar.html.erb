@@ -1,0 +1,9 @@
+<div class="col-md-2">
+  <h3>My Folders</h3>
+  <ul>
+    <% @user.folders.each do |f| %>
+      <li><%= link_to f.name, folder_path(:id => @user.id, :folderid => f.id) %></li>
+    <% end %>
+  </ul>
+  <%= link_to 'Add Folder', new_folder_path(:id => @user.id) %>
+</div>

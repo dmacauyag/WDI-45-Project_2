@@ -4,7 +4,7 @@
   <h2>My Videos</h2>
 
   <% @user.videos.each do |v| %>
-    <div class="video-containe">
+    <div class="video-container", style="float:left; margin-left:30px; margin-right:30px;">
       <h3><%= v.title %></h3>
       <iframe src="<%= v.source.html_safe %>" width="300" height="300" allowfullscreen></iframe>
       <p><%= v.description %></p>

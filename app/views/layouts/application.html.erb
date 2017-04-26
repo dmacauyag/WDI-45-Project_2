@@ -9,6 +9,8 @@
   </head>
 
   <body>
+    <%= render 'partials/navbar' %>
+
     <% if logged_in? %>
       <%= link_to "Edit Profile", edit_user_path(current_user) %>
       <%= link_to "Delete Profile", user_path(current_user), method: 'DELETE', data: {confirm: "Are you sure you want to delete your account?"} %>

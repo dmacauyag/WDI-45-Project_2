@@ -8,6 +8,8 @@
     <% end %>
   </ul>
   <% if !params[:folderid] %>
-    <%= link_to 'Add Folder', new_folder_path(:id => @user.id) %>
+    <% if current_user.id == params[:id].to_i %>
+      <%= link_to 'Add Folder', new_folder_path(:id => @user.id) %>
+    <% end  %>
   <% end %>
 </div>

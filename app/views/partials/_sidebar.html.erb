@@ -2,7 +2,9 @@
   <h3>My Folders</h3>
   <ul>
     <% @user.folders.each do |f| %>
-      <li><%= link_to f.name, folder_path(:id => @user.id, :folderid => f.id) %></li>
+      <h4>
+        <li><%= link_to f.name, folder_path(:id => @user.id, :folderid => f.id) %></li>
+      </h4>
     <% end %>
   </ul>
   <% if !params[:folderid] %>

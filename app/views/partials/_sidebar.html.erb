@@ -1,12 +1,28 @@
 <div class="col-md-2">
-  <h3>My Folders</h3>
-  <ul>
-    <% @user.folders.each do |f| %>
-      <h4>
-        <li><%= link_to f.name, folder_path(:id => @user.id, :folderid => f.id) %></li>
-      </h4>
-    <% end %>
-  </ul>
+  <% if current_user.id == params[:id].to_i %>
+    <h3>My Folders</h3>
+  <% else  %>
+    <h3>Folders</h3>
+  <% end  %>
+
+  <% if current_user.id == params[:id].to_i %>
+    <ul>
+      <% @user.folders.each do |f| %>
+        <h4>
+          <li><%= link_to f.name, folder_path(:id => @user.id, :folderid => f.id) %></li>
+        </h4>
+      <% end %>
+    </ul>
+  <% else %>
+    <ul>
+      <% @user_folders.folders.each do |f| %>
+        <h4>
+          <li><%= link_to f.name, folder_path(:id => @user_folders.id, :folderid => f.id) %></li>
+        </h4>
+      <% end %>
+    </ul>
+  <% end %>
+
   <% if !params[:folderid] %>
     <% if current_user.id == params[:id].to_i %>
       <%= link_to 'Add Folder', new_folder_path(:id => @user.id) %>

@@ -8,7 +8,11 @@ class FoldersController < ApplicationController
   end
 
   def new
-    @folder = current_user.folders.new
+    if current_user.id == params[:id].to_i
+      @folder = current_user.folders.new
+    else
+      redirect_to user_path(current_user)
+    end
   end
 
   def create

@@ -35,7 +35,7 @@ class FoldersController < ApplicationController
     if @folder.update_attributes(folder_params)
       redirect_to folder_path(:id => current_user.id, :folderid => params[:folderid])
     else
-      redirect_to edit_folder_path(:id => current_user.id, :folderid => params[:folderid])
+      render "edit"
     end
   end
 

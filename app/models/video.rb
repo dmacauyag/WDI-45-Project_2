@@ -2,6 +2,8 @@ class Video < ApplicationRecord
   belongs_to :user
   has_and_belongs_to_many :folders
 
+  validates :source, presence: { message: "~> Please enter a valid Youtube url."}
+
   # Checks the source of the video and applies the proper function to extract embed code
   def video_source(str)
     if str.include? 'www.youtube.com'
@@ -24,6 +26,6 @@ class Video < ApplicationRecord
     return "http://www.youtube.com/embed/#{ youtube_id }"
   end
 
-  before_save { |video| video.source = video_source(video.source) }
-  
+  before_validation { |video| video.source = video_source(video.source) }
+
 end

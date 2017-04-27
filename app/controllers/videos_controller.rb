@@ -20,7 +20,7 @@ class VideosController < ApplicationController
     if @video.save
       redirect_to user_path(current_user)
     else
-      redirect_to new_post_path
+      render "new"
     end
   end
 

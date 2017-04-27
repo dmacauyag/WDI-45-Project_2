@@ -58,7 +58,7 @@ class VideosController < ApplicationController
       flash[:alert] = @video.title + " added to " + @folder.name + " folder."
       redirect_to user_path(current_user)
     else
-      flash[:alert] = "That video is already inside the " + @folder.name + " folder."
+      flash[:alert] = @video.title + " is already inside the " + @folder.name + " folder."
       redirect_to video_folder_path(@video)
     end
   end
@@ -68,6 +68,7 @@ class VideosController < ApplicationController
     @folder = Folder.find(params[:folder_id])
 
     if @folder.videos.delete(@video)
+      flash[:alert] = @video.title + " removed from " + @folder.name + " folder."
       redirect_to user_path(current_user)
     end
   end

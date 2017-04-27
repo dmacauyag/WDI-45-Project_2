@@ -36,7 +36,7 @@
             <div class="panel-footer">
               <p><%= v.description %></p>
               <% if current_user.id == params[:id].to_i %>
-                <%= link_to 'Remove From Folder', method: 'DELETE' %>
+                <%= link_to 'Remove From Folder', remove_video_from_folder_path(:id => v.id, :folder_id => params[:folderid]), method: 'DELETE' %>
                 <%= link_to 'Edit Video', edit_video_path(:id => v.id) %>
                 <%= link_to 'Delete Video', video_path(:id => v.id), method: 'DELETE', data: {confirm: "Are you sure you want to delete this video?"} %>
               <% end %>

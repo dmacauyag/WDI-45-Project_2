@@ -22,7 +22,7 @@ class FoldersController < ApplicationController
     if @folder.save
       redirect_to user_path(current_user)
     else
-      redirect_to new_folder_path
+      render "new"
     end
   end
 

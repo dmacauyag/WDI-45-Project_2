@@ -5,5 +5,7 @@
       <li><%= link_to f.name, folder_path(:id => @user.id, :folderid => f.id) %></li>
     <% end %>
   </ul>
-  <%= link_to 'Add Folder', new_folder_path(:id => @user.id) %>
+  <% if !params[:folderid] %>
+    <%= link_to 'Add Folder', new_folder_path(:id => @user.id) %>
+  <% end %>
 </div>

@@ -55,6 +55,7 @@ class VideosController < ApplicationController
 
     if !@folder.videos.exists?(@video.id)
       @folder.videos << @video
+      flash[:alert] = @video.title + " added to " + @folder.name + " folder."
       redirect_to user_path(current_user)
     else
       flash[:alert] = "That video is already inside the " + @folder.name + " folder."

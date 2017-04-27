@@ -33,7 +33,7 @@ class VideosController < ApplicationController
     if @video.update_attributes(video_params)
       redirect_to user_path(current_user)
     else
-      redirect_to edit_video_path(params[:id])
+      render "edit"
     end
   end
 

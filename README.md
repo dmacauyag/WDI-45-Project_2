@@ -52,6 +52,9 @@ VidLinkz was built using the following:
 
 
 ## Acknowledgments 
+Background image from <a href="https://pixabay.com/en/vcr-video-tapes-movie-old-retro-1221156/">Pixabay</a>.
+
+
 The method I used (see below) to parse out the ID from a provided Youtube url and generate the url for the iframe was based off of code found on    <a href="http://stackoverflow.com/questions/5909121/converting-a-regular-youtube-link-into-an-embedded-video">Stack Overflow</a>.
 
 ```

@@ -8,7 +8,11 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
 
-  <body>
+  <% if action_name == 'index' %>
+    <body class="body-index">
+  <% else %>
+    <body>
+  <% end %>
     <%= render 'partials/navbar' %>
 
     <% if flash[:alert] %>

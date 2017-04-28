@@ -9,9 +9,9 @@
         <span class="icon-bar"></span>
       </button>
       <% if logged_in? %>
-        <a class="navbar-brand" href="<%= user_path(current_user) %>">VidLinkz</a>
+        <a class="navbar-brand home-title" href="<%= user_path(current_user) %>">VidLinkz</a>
       <% else %>
-        <a class="navbar-brand" href="<%= root_path %>">VidLinkz</a>
+        <a class="navbar-brand home-title" href="<%= root_path %>">VidLinkz</a>
       <% end %>
     </div>
 

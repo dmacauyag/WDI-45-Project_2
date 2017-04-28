@@ -14,3 +14,12 @@
  // Custom bootstrap variables must be set or imported *before* bootstrap.
  @import "bootstrap-sprockets";
  @import "bootstrap";
+
+ .home-text {
+   text-align: center;
+ }
+
+ .jumbotron {
+    margin-bottom: 0px;
+    color: #333333;
+}
